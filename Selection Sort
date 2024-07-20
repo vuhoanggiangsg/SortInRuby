@@ -1,0 +1,23 @@
+def selection_sort(arr)
+  n = arr.length
+  for i in 0...(n-1)
+    # Find the minimum element in unsorted array
+    min_idx = i
+    for j in (i+1)...n
+      min_idx = j if arr[j] < arr[min_idx]
+    end
+    # Swap the found minimum element with the first element
+    arr[i], arr[min_idx] = arr[min_idx], arr[i] if i != min_idx
+  end
+end
+
+def print_array(arr)
+  arr.each { |e| print "#{e} " }
+  puts
+end
+
+# Example usage
+arr = [64, 25, 12, 22, 11]
+selection_sort(arr)
+puts "Sorted array:"
+print_array(arr)
